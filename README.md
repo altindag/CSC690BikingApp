@@ -10,7 +10,7 @@ Proposal
   
 
 work load for Biking App  
-  -Suheyl  
+  -Soheil  
     Login/logout 2h  
     Manage bikers 20h  
     Create Bikers 5h  
