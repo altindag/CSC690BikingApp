@@ -1,8 +1,8 @@
 Tracking App  
 
 Team Members  
-    Soheil Ansari  
-    Cavit Altindag  
+    &nbsp;Soheil Ansari  
+    &nbsp;Cavit Altindag  
   
 Proposal  
   -Biking / running app which keeps track of biking duration , speed and location/road.  
