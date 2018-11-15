@@ -1,12 +1,12 @@
-Tracking App
+Tracking App  
 
-Team Members
-  Soheil Ansari
-  Cavit Altindag
+Team Members  
+  Soheil Ansari  
+  Cavit Altindag  
   
 Proposal
-  -Biking / running app which keeps track of biking duration , speed and location/road.
-  -Crypto currency alarm app. Set Alarm for certain price for the selected crypto currency in the wallet.
+  -Biking / running app which keeps track of biking duration , speed and location/road.  
+  -Crypto currency alarm app. Set Alarm for certain price for the selected crypto currency in the wallet.  
   
 
 work load for Biking App
