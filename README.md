@@ -11,21 +11,21 @@ Proposal
 
 work load for Biking App  
  &nbsp;&nbsp;&nbsp; -Soheil  
-    &nbsp;&nbsp;&nbsp;Login/logout 2h  
-    &nbsp;&nbsp;&nbsp;Manage bikers 20h  
-    &nbsp;&nbsp;&nbsp;Create Bikers 5h  
-    &nbsp;&nbsp;&nbsp;share map with biker 10h  
-    &nbsp;&nbsp;&nbsp;Track history 40h  
-    &nbsp;&nbsp;&nbsp;Speed Track 40h  
-   &nbsp;&nbsp;&nbsp; Duration 20h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login/logout 2h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage bikers 20h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create Bikers 5h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;share map with biker 10h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Track history 40h  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Speed Track 40h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Duration 20h  
       
   &nbsp;&nbsp;&nbsp;-Cavit  
-   &nbsp;&nbsp;&nbsp; Register 2h  
-   &nbsp;&nbsp;&nbsp; Manage Groups 30h  
-   &nbsp;&nbsp;&nbsp; Create Groups 5h  
-   &nbsp;&nbsp;&nbsp; Add biker to the group 10h  
-   &nbsp;&nbsp;&nbsp; New Track / departure - destination 40h  
-   &nbsp;&nbsp;&nbsp; Location track 40 h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Register 2h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Manage Groups 30h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create Groups 5h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Add biker to the group 10h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Track / departure - destination 40h  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Location track 40 h  
     
     
     
