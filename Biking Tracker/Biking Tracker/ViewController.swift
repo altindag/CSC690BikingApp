@@ -86,10 +86,26 @@ var running : Bool = false;
         
     }
     @IBAction func clearMapClicked(_ sender: Any) {
+       
+        let coordinate : MKCircle =  self.road[self.road.count-1]
         self.mapView.removeAnnotations(self.roadAnnotations)
         self.mapView.removeOverlays(self.road)
         self.road = []
+        if running == false{
+            startTimeHolder.text = "0 : 0"
+            durationHolder.text = "0 : 0 : 0"
+            totalTime = 0;
+        }else{
+            startTimeHolder.text = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
+            totalTime = 0;
+            
+            
+            addPoint((coordinate.coordinate), "stop")
+            
+        }
         
+        self.road.append(coordinate)
+       // self.mapView.addAnnotation(<#T##annotation: MKAnnotation##MKAnnotation#>)
     }
     func updateTime() {
        
@@ -151,6 +167,35 @@ var running : Bool = false;
             
         }
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // Don't want to show a custom image if the annotation is the user's location.
+        guard !annotation.isKind(of: MKUserLocation.self) else {
+            return nil
+        }
+        
+        // Better to make this class property
+        let annotationIdentifier = "AnnotationIdentifier"
+        
+        var annotationView: MKAnnotationView?
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotationView
+            annotationView?.annotation = annotation
+        }
+        else {
+            let av = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView = av
+        }
+        
+        if let annotationView = annotationView {
+            // Configure your annotation view here
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "point.png")
+        }
+        
+        return annotationView
     }
 
 
