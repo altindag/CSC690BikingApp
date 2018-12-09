@@ -86,7 +86,7 @@ var running : Bool = false;
         
     }
     @IBAction func clearMapClicked(_ sender: Any) {
-        
+        self.mapView.removeAnnotations(self.roadAnnotations)
         self.mapView.removeOverlays(self.road)
         self.road = []
         
