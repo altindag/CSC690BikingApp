@@ -26,7 +26,7 @@ class BikeAnnotation: NSObject, MKAnnotation{
         return MKCoordinateRegion(center: coordinate, span: span)
     }
 }
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate ,MKMapViewDelegate {
 var timer = Timer()
 var totalTime : Int = 0
 var running : Bool = false;
@@ -35,7 +35,8 @@ var running : Bool = false;
     
     @IBOutlet weak var durationHolder: UILabel!
     @IBOutlet weak var startTimeHolder: UILabel!
-
+ var locationManager = CLLocationManager()
+    var road: [MKCircle] = []
 
     
     @IBAction func startTrackingclick(_ sender: UIButton) {
@@ -52,10 +53,10 @@ var running : Bool = false;
             mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
             let instanceCoordinate = CLLocationCoordinate2D(latitude: 42.361, longitude: -71.0942)
             let instanceAnnotation = BikeAnnotation(coordinate: instanceCoordinate, title: "start location", subtitle: "we started here")
-            mapView.addAnnotation(instanceAnnotation)
-            mapView.setRegion(instanceAnnotation.region, animated: true)
+            locationManager.startUpdatingLocation()
             
         }else{
+            locationManager.stopUpdatingLocation()
             timer.invalidate()
             running = false
             startTracking.setImage(UIImage(named: "starticon.png"), for: .normal)
@@ -63,10 +64,7 @@ var running : Bool = false;
             
         }
     }
-    @IBAction func startTracking(_ sender: UIButton) {
-        
 
-    }
     func updateTime() {
        
          totalTime += 1
@@ -85,25 +83,53 @@ var running : Bool = false;
        
         updateTime()
     }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002) )
+        
+        self.mapView.setRegion(region, animated: false)
+        print(locations[0].coordinate.latitude)
+        print(locations.count)
+        
+        self.road.append(MKCircle(center: region.center , radius: 2))
+        self.mapView.addOverlays(self.road, level: .aboveLabels)
+        
+    }
     
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
+        
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        
+        circleRenderer.strokeColor = UIColor.blue
+        circleRenderer.lineWidth = 1.0
+        print("overlay")
+        return circleRenderer
+        
+    }
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        super.viewDidLoad()
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        self.mapView.setUserTrackingMode(.followWithHeading, animated: false)
+        if CLLocationManager.locationServicesEnabled() == true {
+            if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .notDetermined{
+                
+                locationManager.requestWhenInUseAuthorization()
+                
+            }
+            locationManager.desiredAccuracy = 1.0
+            locationManager.delegate = self
+            
+            
+            
+            
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
 
 }
 
-extension ViewController: MKMapViewDelegate{
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
-        if let bikeAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-            bikeAnnotation.animatesWhenAdded = true
-            bikeAnnotation.titleVisibility = .adaptive
-            bikeAnnotation.titleVisibility = .adaptive
-            
-            return bikeAnnotation
-        }
-        return nil
-    }
-}
+
