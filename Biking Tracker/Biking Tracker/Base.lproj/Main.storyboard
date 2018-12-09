@@ -80,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjD-uB-Och">
-                                <rect key="frame" x="159" y="473" width="57" height="54"/>
+                                <rect key="frame" x="109" y="471" width="57" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start" image="starticon"/>
                                 <connections>
@@ -89,16 +89,34 @@
                                     <action selector="startTrackingclick:" destination="PHh-70-kuQ" eventType="touchUpInside" id="svI-Pe-ym5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-gh-A6H">
+                                <rect key="frame" x="154" y="471" width="48" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="stopicon"/>
+                                <connections>
+                                    <action selector="stopTrackingClick:" destination="PHh-70-kuQ" eventType="touchUpInside" id="Oaw-nN-kfz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glt-pq-7Py">
+                                <rect key="frame" x="199" y="473" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="refreshicon"/>
+                                <connections>
+                                    <action selector="clearMapClicked:" destination="PHh-70-kuQ" eventType="touchUpInside" id="Can-DL-E8k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="48B-vL-FY3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="dwR-5I-rcW"/>
                     <connections>
+                        <outlet property="clearMap" destination="glt-pq-7Py" id="o7W-WA-bao"/>
                         <outlet property="durationHolder" destination="XEA-zf-BMc" id="yQE-Yo-LMs"/>
                         <outlet property="mapView" destination="LS3-N3-yuB" id="PYX-0o-7Fv"/>
                         <outlet property="startTimeHolder" destination="Yvc-Ft-0Le" id="chd-jE-IY0"/>
                         <outlet property="startTracking" destination="TjD-uB-Och" id="kwn-Au-tsI"/>
+                        <outlet property="stopTracking" destination="d6n-gh-A6H" id="9cI-9X-JuD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYp-Ms-CqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,6 +181,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="refreshicon" width="256" height="256"/>
         <image name="starticon" width="256" height="256"/>
+        <image name="stopicon" width="256" height="256"/>
     </resources>
 </document>
