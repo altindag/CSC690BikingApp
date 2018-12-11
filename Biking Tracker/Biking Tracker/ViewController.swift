@@ -42,10 +42,17 @@ var running : Bool = false;
     @IBOutlet weak var stopTracking: UIButton!
     var locationManager = CLLocationManager()
     var road: [MKCircle] = []
+    
+    var path : Path? = nil
+    
     var roadAnnotations: [BikeAnnotation] = []
 
     
     @IBAction func startTrackingclick(_ sender: UIButton) {
+    
+        path = Path()
+        
+        
         self.annotationStartPoint = self.road.count
         print("initial array :\(self.annotationStartPoint)")
         if (running == false) {
@@ -82,8 +89,12 @@ var running : Bool = false;
             running = false
             //startTracking.setImage(UIImage(named: "starticon.png"), for: .normal)
             addPoint((self.locationManager.location?.coordinate)!,"stop")
+            
+            // save -- TODO unwrap
+            if let p = path{
+                PathList.shared.add(p)
+            }
         }
-        
     }
     @IBAction func clearMapClicked(_ sender: Any) {
        
@@ -91,6 +102,8 @@ var running : Bool = false;
         self.mapView.removeAnnotations(self.roadAnnotations)
         self.mapView.removeOverlays(self.road)
         self.road = []
+        
+        
         if running == false{
             startTimeHolder.text = "0 : 0"
             durationHolder.text = "0 : 0 : 0"
@@ -128,7 +141,14 @@ var running : Bool = false;
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         if (running == true){
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002) )
-        
+            
+            
+//            print(locations[0].coordinate.latitude)
+//            print(locations[0].coordinate.longitude)
+            
+            path?.lats.append(locations[0].coordinate.latitude)
+            path?.lngs.append(locations[0].coordinate.longitude)
+            
             self.mapView.setRegion(region, animated: false)
             self.road.append(MKCircle(center: region.center , radius: 2))
             self.mapView.addOverlays(self.road, level: .aboveLabels)
@@ -197,7 +217,81 @@ var running : Bool = false;
         
         return annotationView
     }
+    
+    
+    
+    
+    @IBAction func saveBtn(_ sender: Any) {
+        
+        var filePath: String {
+            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
+            let manager = FileManager.default
+            //2 - this returns an array of urls from our documentDirectory and we take the first path
+            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+            print("this is the url path in the documentDirectory \(url)")
+            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
+            return (url!.appendingPathComponent("Data").path)
+        }
 
+        var fileURL: URL {
+            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
+            let manager = FileManager.default
+            //2 - this returns an array of urls from our documentDirectory and we take the first path
+            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+            print("this is the url path in the documentDirectory \(url)")
+            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
+            return (url!.appendingPathComponent("Data"))
+        }
+        
+//
+//        let encoder = JSONEncoder()
+//        let encoded = try! encoder.encode(path)
+        
+        
+        
+        if let encodedData = try? JSONEncoder().encode(path) {
+            do {
+                try encodedData.write(to: fileURL)
+            }
+            catch {
+                print("Failed to write JSON data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    @IBAction func loadBtn(_ sender: Any) {
+        
+        
+        
+        var fileURL: URL {
+            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
+            let manager = FileManager.default
+            //2 - this returns an array of urls from our documentDirectory and we take the first path
+            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+            print("this is the url path in the documentDirectory \(url)")
+            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
+            return (url!.appendingPathComponent("Data"))
+        }
+        
+        
+        do {
+            let text2 = try Data(contentsOf: fileURL)
+            
+            print(text2)
+            
+            
+            let decoder = JSONDecoder()
+            guard let loadedPath = try? decoder.decode(Path.self, from: text2) else{
+                return
+            }
+            print(loadedPath.title)
+        }
+        catch {/* error handling here */}
+        
+        
+        
+    }
+    
 
 }
 

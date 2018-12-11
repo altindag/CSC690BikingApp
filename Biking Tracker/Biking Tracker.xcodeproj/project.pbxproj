@@ -14,6 +14,8 @@
 		5B115E2021B080DC00398675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B115E1E21B080DC00398675 /* LaunchScreen.storyboard */; };
 		5B115E2B21B080DC00398675 /* Biking_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E2A21B080DC00398675 /* Biking_TrackerTests.swift */; };
 		5B115E3621B080DC00398675 /* Biking_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E3521B080DC00398675 /* Biking_TrackerUITests.swift */; };
+		5B321A5421BF42EB009839F3 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5321BF42EB009839F3 /* Path.swift */; };
+		5B321A5621BF43B4009839F3 /* PathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5521BF43B4009839F3 /* PathList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		5B115E3121B080DC00398675 /* Biking TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Biking TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B115E3521B080DC00398675 /* Biking_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biking_TrackerUITests.swift; sourceTree = "<group>"; };
 		5B115E3721B080DD00398675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B321A5321BF42EB009839F3 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		5B321A5521BF43B4009839F3 /* PathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		5B115E1421B080DA00398675 /* Biking Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5B321A5221BF418E009839F3 /* model */,
 				5B115E1521B080DA00398675 /* AppDelegate.swift */,
 				5B115E1721B080DA00398675 /* ViewController.swift */,
 				5B115E1921B080DA00398675 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				5B115E3721B080DD00398675 /* Info.plist */,
 			);
 			path = "Biking TrackerUITests";
+			sourceTree = "<group>";
+		};
+		5B321A5221BF418E009839F3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5B321A5321BF42EB009839F3 /* Path.swift */,
+				5B321A5521BF43B4009839F3 /* PathList.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B115E1821B080DA00398675 /* ViewController.swift in Sources */,
+				5B321A5421BF42EB009839F3 /* Path.swift in Sources */,
+				5B321A5621BF43B4009839F3 /* PathList.swift in Sources */,
 				5B115E1621B080DA00398675 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
