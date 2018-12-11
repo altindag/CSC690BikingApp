@@ -156,15 +156,7 @@ var running : Bool = false;
         
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
-        
-        let circleRenderer = MKCircleRenderer(overlay: overlay)
-        
-        circleRenderer.strokeColor = UIColor.blue
-        circleRenderer.lineWidth = 1.0
-        return circleRenderer
-        
-    }
+
     override func viewDidLoad() {
        
         super.viewDidLoad()
@@ -187,6 +179,17 @@ var running : Bool = false;
             
         }
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer{
+        
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        
+        circleRenderer.strokeColor = UIColor.blue
+        circleRenderer.lineWidth = 1.0
+        return circleRenderer
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -262,8 +265,6 @@ var running : Bool = false;
     @IBAction func loadBtn(_ sender: Any) {
         
         
-        
-
         
     }
     

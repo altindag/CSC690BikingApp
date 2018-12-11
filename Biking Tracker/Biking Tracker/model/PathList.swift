@@ -22,6 +22,7 @@ class PathList: Codable{
                 return
             }
             paths = loadedPaths.paths
+            print("Loaded paths... counts " + String(paths.count) )
         }
         catch {/* error handling here */}
     }

@@ -16,6 +16,9 @@
 		5B115E3621B080DC00398675 /* Biking_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E3521B080DC00398675 /* Biking_TrackerUITests.swift */; };
 		5B321A5421BF42EB009839F3 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5321BF42EB009839F3 /* Path.swift */; };
 		5B321A5621BF43B4009839F3 /* PathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5521BF43B4009839F3 /* PathList.swift */; };
+		5B321A5821BF591E009839F3 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5721BF591E009839F3 /* HistoryController.swift */; };
+		5B321A5A21BF5A67009839F3 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5921BF5A67009839F3 /* HistoryCell.swift */; };
+		5B321A5C21BF5AE4009839F3 /* HistoryItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B321A5B21BF5AE4009839F3 /* HistoryItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		5B115E3721B080DD00398675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B321A5321BF42EB009839F3 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		5B321A5521BF43B4009839F3 /* PathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathList.swift; sourceTree = "<group>"; };
+		5B321A5721BF591E009839F3 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		5B321A5921BF5A67009839F3 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		5B321A5B21BF5AE4009839F3 /* HistoryItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 				5B115E1C21B080DC00398675 /* Assets.xcassets */,
 				5B115E1E21B080DC00398675 /* LaunchScreen.storyboard */,
 				5B115E2121B080DC00398675 /* Info.plist */,
+				5B321A5721BF591E009839F3 /* HistoryController.swift */,
+				5B321A5921BF5A67009839F3 /* HistoryCell.swift */,
+				5B321A5B21BF5AE4009839F3 /* HistoryItemController.swift */,
 			);
 			path = "Biking Tracker";
 			sourceTree = "<group>";
@@ -270,6 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B321A5A21BF5A67009839F3 /* HistoryCell.swift in Sources */,
+				5B321A5C21BF5AE4009839F3 /* HistoryItemController.swift in Sources */,
+				5B321A5821BF591E009839F3 /* HistoryController.swift in Sources */,
 				5B115E1821B080DA00398675 /* ViewController.swift in Sources */,
 				5B321A5421BF42EB009839F3 /* Path.swift in Sources */,
 				5B321A5621BF43B4009839F3 /* PathList.swift in Sources */,
