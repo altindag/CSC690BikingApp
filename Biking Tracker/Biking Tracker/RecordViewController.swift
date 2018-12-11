@@ -28,7 +28,7 @@ class BikeAnnotation: NSObject, MKAnnotation{
 }
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate ,MKMapViewDelegate {
+class RecordViewController: UIViewController, CLLocationManagerDelegate ,MKMapViewDelegate {
 var timer = Timer()
 var totalTime : Int = 0
 var running : Bool = false;
@@ -92,6 +92,9 @@ var running : Bool = false;
             
             // save -- TODO unwrap
             if let p = path{
+                p.start = startTimeHolder.text!
+                p.end = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
+                p.duration = durationHolder.text!
                 PathList.shared.add(p)
             }
         }
@@ -128,10 +131,6 @@ var running : Bool = false;
         let hours: Int = totalTime / 3600
 
         durationHolder.text = "\(hours) : \((minutes)) : \(seconds)"
-        
-      
-        
-       
     }
 
     @objc func tick() {
@@ -223,50 +222,33 @@ var running : Bool = false;
     
     
     
-    
-    @IBAction func saveBtn(_ sender: Any) {
-        
-        var filePath: String {
-            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
-            let manager = FileManager.default
-            //2 - this returns an array of urls from our documentDirectory and we take the first path
-            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-            print("this is the url path in the documentDirectory \(url)")
-            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
-            return (url!.appendingPathComponent("Data").path)
-        }
-
-        var fileURL: URL {
-            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
-            let manager = FileManager.default
-            //2 - this returns an array of urls from our documentDirectory and we take the first path
-            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-            print("this is the url path in the documentDirectory \(url)")
-            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
-            return (url!.appendingPathComponent("Data"))
-        }
-        
-//
-//        let encoder = JSONEncoder()
-//        let encoded = try! encoder.encode(path)
-        
-        
-        
-        if let encodedData = try? JSONEncoder().encode(path) {
-            do {
-                try encodedData.write(to: fileURL)
-            }
-            catch {
-                print("Failed to write JSON data: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    @IBAction func loadBtn(_ sender: Any) {
-        
-        
-        
-    }
+//    
+//    @IBAction func saveBtn(_ sender: Any) {
+//        
+//        var fileURL: URL {
+//            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
+//            let manager = FileManager.default
+//            //2 - this returns an array of urls from our documentDirectory and we take the first path
+//            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
+//            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
+//            return (url!.appendingPathComponent("Data"))
+//        }
+//        
+//        if let encodedData = try? JSONEncoder().encode(path) {
+//            do {
+//                try encodedData.write(to: fileURL)
+//            }
+//            catch {
+//                print("Failed to write JSON data: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+//    
+//    @IBAction func loadBtn(_ sender: Any) {
+//        
+//        
+//        
+//    }
     
 
 }

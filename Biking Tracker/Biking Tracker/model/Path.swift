@@ -13,6 +13,9 @@ import MapKit
 class Path: Codable{
     
     var title: String
+    var start: String = ""
+    var end: String = ""
+    var duration: String = ""
     var lats: [Double] = []
     var lngs: [Double] = []
     

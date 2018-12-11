@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B115E1621B080DA00398675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E1521B080DA00398675 /* AppDelegate.swift */; };
-		5B115E1821B080DA00398675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E1721B080DA00398675 /* ViewController.swift */; };
+		5B115E1821B080DA00398675 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B115E1721B080DA00398675 /* RecordViewController.swift */; };
 		5B115E1B21B080DA00398675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B115E1921B080DA00398675 /* Main.storyboard */; };
 		5B115E1D21B080DC00398675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B115E1C21B080DC00398675 /* Assets.xcassets */; };
 		5B115E2021B080DC00398675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B115E1E21B080DC00398675 /* LaunchScreen.storyboard */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		5B115E1221B080DA00398675 /* Biking Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Biking Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B115E1521B080DA00398675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B115E1721B080DA00398675 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B115E1721B080DA00398675 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		5B115E1A21B080DA00398675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B115E1C21B080DC00398675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B115E1F21B080DC00398675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,9 +107,10 @@
 		5B115E1421B080DA00398675 /* Biking Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				5B7421AB21C0478F0021C026 /* helper */,
 				5B321A5221BF418E009839F3 /* model */,
 				5B115E1521B080DA00398675 /* AppDelegate.swift */,
-				5B115E1721B080DA00398675 /* ViewController.swift */,
+				5B115E1721B080DA00398675 /* RecordViewController.swift */,
 				5B115E1921B080DA00398675 /* Main.storyboard */,
 				5B115E1C21B080DC00398675 /* Assets.xcassets */,
 				5B115E1E21B080DC00398675 /* LaunchScreen.storyboard */,
@@ -146,6 +147,13 @@
 				5B321A5521BF43B4009839F3 /* PathList.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		5B7421AB21C0478F0021C026 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +290,7 @@
 				5B321A5A21BF5A67009839F3 /* HistoryCell.swift in Sources */,
 				5B321A5C21BF5AE4009839F3 /* HistoryItemController.swift in Sources */,
 				5B321A5821BF591E009839F3 /* HistoryController.swift in Sources */,
-				5B115E1821B080DA00398675 /* ViewController.swift in Sources */,
+				5B115E1821B080DA00398675 /* RecordViewController.swift in Sources */,
 				5B321A5421BF42EB009839F3 /* Path.swift in Sources */,
 				5B321A5621BF43B4009839F3 /* PathList.swift in Sources */,
 				5B115E1621B080DA00398675 /* AppDelegate.swift in Sources */,
