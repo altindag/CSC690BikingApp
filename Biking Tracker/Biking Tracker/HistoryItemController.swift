@@ -6,71 +6,31 @@ class HistoryItemController: UIViewController, MKMapViewDelegate{
     var selectedID = 0
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
         mapView.delegate = self
-
         
         let path = PathList.shared.getList()[selectedID]
-  
-        print(path.title)
-        print(path.lats)
         
-    
-
         // build the points
         var road: [MKCircle] = []
-        
-        
         for i in 0...path.lats.count - 1 {
-            
-            
             let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: path.lats[i], longitude: path.lngs[i]), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002) )
             
             self.mapView.setRegion(region, animated: false)
             road.append(MKCircle(center: region.center , radius: 2))
-            
-            
-            self.mapView.addOverlays(road, level: .aboveLabels)
-
         }
-        
-
-
-    
-
-
-
-
-
-    
-        
-        
-        
-        
-        
-//        mapView.delegate = self
-//        mapView.showsUserLocation = true
-        
-//        if CLLocationManager.locationServicesEnabled() == true {
-//            if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .notDetermined{
-//
-//                locationManager.requestWhenInUseAuthorization()
-//
-//            }
-//            locationManager.desiredAccuracy = 1.0
-//            locationManager.delegate = self
-//        }
-        // Do any additional setup after loading the view, typically from a nib.
+        self.mapView.addOverlays(road, level: .aboveLabels)
+        startLabel.text = path.start
+        endLabel.text = path.end
+        durationLabel.text = path.duration
     }
-    
-    
-    
     
     
     
@@ -112,8 +72,4 @@ class HistoryItemController: UIViewController, MKMapViewDelegate{
         
         return annotationView
     }
-    
-    
-    
-    
 }
