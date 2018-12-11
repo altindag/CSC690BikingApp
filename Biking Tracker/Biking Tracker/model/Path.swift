@@ -10,20 +10,18 @@ import Foundation
 import MapKit
 
 
-class Path: NSObject, Codable{
+class Path: Codable{
     
     var title: String
     var lats: [Double] = []
     var lngs: [Double] = []
     
-    override init(){
+    init(){
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy-MM-dd HH:mm"
         let date = Date()
         self.title = dateFormatter.string(from: date)
         print(self.title)
-        
-        super.init()
     }
     
     init(title: String){

@@ -263,32 +263,7 @@ var running : Bool = false;
         
         
         
-        var fileURL: URL {
-            //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
-            let manager = FileManager.default
-            //2 - this returns an array of urls from our documentDirectory and we take the first path
-            let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-            print("this is the url path in the documentDirectory \(url)")
-            //3 - creates a new path component and creates a new file called "Data" which is where we will store our Data array.
-            return (url!.appendingPathComponent("Data"))
-        }
-        
-        
-        do {
-            let text2 = try Data(contentsOf: fileURL)
-            
-            print(text2)
-            
-            
-            let decoder = JSONDecoder()
-            guard let loadedPath = try? decoder.decode(Path.self, from: text2) else{
-                return
-            }
-            print(loadedPath.title)
-        }
-        catch {/* error handling here */}
-        
-        
+
         
     }
     
