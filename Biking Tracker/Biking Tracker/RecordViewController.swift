@@ -51,8 +51,7 @@ var running : Bool = false;
     @IBAction func startTrackingclick(_ sender: UIButton) {
     
         path = Path()
-        
-        
+    
         self.annotationStartPoint = self.road.count
         print("initial array :\(self.annotationStartPoint)")
         if (running == false) {
@@ -67,9 +66,6 @@ var running : Bool = false;
             
             locationManager.startUpdatingLocation()
             addPoint((locationManager.location?.coordinate)!, "start")
-          
-            
-            
         }
     }
 
@@ -99,6 +95,7 @@ var running : Bool = false;
             }
         }
     }
+    
     @IBAction func clearMapClicked(_ sender: Any) {
        
         let coordinate : MKCircle =  self.road[self.road.count-1]
@@ -171,11 +168,6 @@ var running : Bool = false;
             }
             locationManager.desiredAccuracy = 1.0
             locationManager.delegate = self
-            
-            
-            
-            
-            
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -188,7 +180,6 @@ var running : Bool = false;
         circleRenderer.strokeColor = UIColor.blue
         circleRenderer.lineWidth = 1.0
         return circleRenderer
-        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
