@@ -262,7 +262,7 @@
         <scene sceneID="irZ-4H-a1A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeQ-Xa-9uu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="vcv-tz-cL9"/>
+                    <tabBarItem key="tabBarItem" title="History" image="timer" selectedImage="timer" id="vcv-tz-cL9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mN1-7c-kJJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -281,7 +281,7 @@
         <scene sceneID="VHv-CV-dPI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F4R-6i-6ON" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="oNI-fI-1Qt"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="geo_fence" selectedImage="geo_fence" id="oNI-fI-1Qt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kco-VC-nLM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -298,8 +298,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="geo_fence" width="30" height="30"/>
         <image name="refreshicon" width="256" height="256"/>
         <image name="starticon" width="256" height="256"/>
         <image name="stopicon" width="256" height="256"/>
+        <image name="timer" width="30" height="30"/>
     </resources>
 </document>
